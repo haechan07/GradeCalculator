@@ -1,4 +1,5 @@
 import java.lang.StringBuilder
+import kotlin.math.roundToInt
 
 fun main() {
     val list = mutableListOf<Pair<String, Int>>() // 과목 결과 리스트 만들기
@@ -12,16 +13,20 @@ fun main() {
         when (samePlaces != 0) {
             true -> placement += (samePlaces - 1).toDouble() / 2 // 동석차 수가 0이 아닐 경우 중간 순위 계산 공식 사용
         }
-        val percent = placement / learners * 100 // 퍼센트 계산
-        val gradeClass = when (true) { // 등급 계산
-            percent <= 4 -> 1
-            percent <= 11 -> 2
-            percent <= 23 -> 3
-            percent <= 40 -> 4
-            percent <= 60 -> 5
-            percent <= 77 -> 6
-            percent <= 89 -> 7
-            percent <= 96 -> 8
+        val cutline = mutableListOf(4.0, 11.0, 23.0, 40.0, 60.0, 77.0, 89.0, 96.0)
+        for (i in cutline.indices) {
+            cutline[i] = cutline[i] * learners / 100
+            cutline[i].roundToInt()
+        }
+        val gradeClass = when (true) {
+            placement <= cutline[0] -> 1
+            placement <= cutline[1] -> 2
+            placement <= cutline[2] -> 3
+            placement <= cutline[3] -> 4
+            placement <= cutline[4] -> 5
+            placement <= cutline[5] -> 6
+            placement <= cutline[6] -> 7
+            placement <= cutline[7] -> 8
             else -> 9
         }
         list.add(Pair(className, gradeClass)) // 과목명과 등급을 Pair 자료형을 리스트에 추가한다.
