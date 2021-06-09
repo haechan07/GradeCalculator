@@ -30,7 +30,7 @@ fun main() {
             else -> 9 // 9등급
         }
         list.add(Pair(className, gradeClass)) // 과목명과 등급을 Pair 자료형을 리스트에 추가한다.
-        print("멈출까요? Y를 입력하고 멈추거나 다른걸 입력하세요 : ")
+        print("멈추려면 Y를 입력해주세요 : ")
         when (readLine()!! == "Y") {
             true -> toStop = true // "Y"가 입력되면 toStop 변수를 true로 바꾸어 반복을 멈춘다.
         }
@@ -42,7 +42,7 @@ fun main() {
     print("\n") // 줄바꿈
     println(sb) // 스트링 빌더 출력
     print("Enter 키를 눌러주세요. ")
-    readLine()
+    readLine() // 프로그램 중단을 막음
 }
 
 fun getThing(input : String) : String { // 입력 함수, 파라미터 input을 넣어 출력 후 입력받은 값을 리턴한다.
