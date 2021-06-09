@@ -1,4 +1,4 @@
-import kotlin.text.*
+import kotlin.text.StringBuilder
 import kotlin.math.roundToInt
 
 fun main() {
@@ -40,7 +40,9 @@ fun main() {
         sb.append("\n") // 줄바꿈
     }
     print("\n") // 줄바꿈
-    print(sb) // 스트링 빌더 출력
+    println(sb) // 스트링 빌더 출력
+    print("Enter 키를 눌러주세요. ")
+    readLine()
 }
 
 fun getThing(input : String) : String { // 입력 함수, 파라미터 input을 넣어 출력 후 입력받은 값을 리턴한다.
