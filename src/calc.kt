@@ -1,4 +1,4 @@
-import java.lang.StringBuilder
+import kotlin.text.*
 import kotlin.math.roundToInt
 
 fun main() {
